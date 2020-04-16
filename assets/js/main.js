@@ -28,7 +28,8 @@ $(document).ready(function(){
   // my ref
   var todo = $('.todo-list');
   var newElement = $('.add-element');
-  var clearAll = $('body')
+  var clear = $('body');
+
 
 
   for(i=0; i < todoItems.length; i++) {
@@ -75,14 +76,16 @@ $(document).ready(function(){
       }
     });
 
-    clearAll.keyup(function(e){
+    clear.keyup(function(e){
 
-      if(e.which == 8 || e.keyCode == 8) {
+      if(e.which == 27 || e.keyCode == 27) {
 
       console.log('elimina tutto');
       $('.todo-list li i').parent().remove();
 
-      }
+    } else if(e.which == 8 || e.keyCode == 8) {
+      $('.todo-list li i').last().parent().remove();
+    }
     });
 
 
