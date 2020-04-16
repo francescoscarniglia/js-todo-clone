@@ -21,30 +21,48 @@ $(document).ready(function(){
       'Legumi'
   ];
 
- var todoItemsOrd = todoItems.sort()
+ // ordina in array
+ // var todoItemsOrd = todoItems.sort()
  //console.log(todoItemsOrd);
 
   // my ref
   var todo = $('.todo-list');
+  var newElement = $('.add-element');
 
 
-  for(i=0; i < todoItemsOrd.length; i++) {
+  for(i=0; i < todoItems.length; i++) {
     // Chiamo il template
     var elementList = $('.template li').clone();
     // aggiungo testo dinamico
-    elementList.prepend(todoItemsOrd[i]);
+    elementList.prepend(todoItems[i]);
     // aggiungo il clone alla lista
     todo.append(elementList);
   }
 
   // rimuovo elemento li
-  $('.todo-list li i').click(function(){
+  $('.todo-list li i').click(function() {
     $(this).parent().remove();
   });
 
 
+  // aggiunta di un nuovo elemento list-item
+    newElement.keyup(function(e) {
+      console.log(e.which, e.keyCode);
 
+      if(e.which == 13 || e.keyCode == 13){
+        var text = newElement.val().trim();
+        console.log(text);
 
+        if(text !== '') {
+          var elementNew = $('.template li').clone();
+          elementNew.prepend(text);
+          todo.append(elementNew);
+
+          // clear input
+          newElement.val('');
+        }
+      }
+    });
 
 
 
