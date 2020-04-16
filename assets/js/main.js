@@ -45,7 +45,7 @@ $(document).ready(function(){
   // });
 
   // cambio il padre quindi diventa .body
-  // (.click è una forma contratta di .on ('click') il quale può (non necessariamente) ricevere parametri ( https://api.jquery.com/click/#click-eventData-handler )
+  // .click è una forma contratta di .on('click') il quale può (non necessariamente) ricevere parametri ( https://api.jquery.com/click/#click-eventData-handler )
 
   $('body').on('click', '.todo-list li i', function(){
     $(this).parent().remove();
@@ -73,9 +73,6 @@ $(document).ready(function(){
         }
       }
     });
-
-
-
 
 
 }); //ready
