@@ -14,27 +14,33 @@ $(document).ready(function(){
 
   // Sorgente dati
   var todoItems = [
-      'Acqua',
       'Carne bianca',
+      'Verdura',
       'Frutta',
-      'Legumi',
-      'Verdura'
+      'Acqua',
+      'Legumi'
   ];
+
+ var todoItemsOrd = todoItems.sort()
+ //console.log(todoItemsOrd);
 
   // my ref
   var todo = $('.todo-list');
   var newElement = $('.add-element');
 
-  for(i=0; i < todoItems.length; i++) {
+  for(i=0; i < todoItemsOrd.length; i++) {
     // Chiamo il template
     var elementList = $('.template li').clone();
     // aggiungo testo dinamico
-    elementList.prepend(todoItems[i]);
+    elementList.prepend(todoItemsOrd[i]);
     // aggiungo il clone alla lista
     todo.append(elementList);
   }
 
-
+  // rimuovo elemento li
+  $('.todo-list li i').click(function(){
+    $(this).parent().remove();
+  });
 
 
 
