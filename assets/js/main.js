@@ -28,6 +28,7 @@ $(document).ready(function(){
   // my ref
   var todo = $('.todo-list');
   var newElement = $('.add-element');
+  var clearAll = $('body')
 
 
   for(i=0; i < todoItems.length; i++) {
@@ -73,6 +74,20 @@ $(document).ready(function(){
         }
       }
     });
+
+    clearAll.keyup(function(e){
+
+      if(e.which == 8 || e.keyCode == 8) {
+
+      console.log('elimina tutto');
+      $('.todo-list li i').parent().remove();
+
+      }
+    });
+
+
+
+
 
 
 }); //ready

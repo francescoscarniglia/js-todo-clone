@@ -81,3 +81,9 @@ body {
 .template .element {
   display: none; /* controllo poi con jQuery */
 }
+
+/* footer */
+.main-footer {
+  padding: 20px 10px;
+  font-size: .7em;
+}
