@@ -39,8 +39,15 @@ $(document).ready(function(){
     todo.append(elementList);
   }
 
-  // rimuovo elemento li
-  $('.todo-list li i').click(function() {
+  // rimuovo elemento li (va bene per gli elementi statici e quindi solo per quelli che vengono caricati insieme alla pagina (non i nuovi valori che inserisco nel input))
+  // $('.todo-list li i').click(function() {
+  //   $(this).parent().remove();
+  // });
+
+  // cambio il padre quindi diventa .body
+  // (.click è una forma contratta di .on ('click') il quale può (non necessariamente) ricevere parametri ( https://api.jquery.com/click/#click-eventData-handler )
+
+  $('body').on('click', '.todo-list li i', function(){
     $(this).parent().remove();
   });
 
@@ -49,10 +56,13 @@ $(document).ready(function(){
     newElement.keyup(function(e) {
       console.log(e.which, e.keyCode);
 
+      // è buona norma assicurarmi il codice del tasto, quindi sia which che keyCode per non avere problemi di compatibilità
+      // con or || (oppure) elimino il rischio "undefined"
       if(e.which == 13 || e.keyCode == 13){
         var text = newElement.val().trim();
         console.log(text);
 
+        // questo è == newElement.lenght > 0
         if(text !== '') {
           var elementNew = $('.template li').clone();
           elementNew.prepend(text);
