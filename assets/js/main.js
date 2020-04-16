@@ -26,7 +26,7 @@ $(document).ready(function(){
 
   // my ref
   var todo = $('.todo-list');
-  var newElement = $('.add-element');
+
 
   for(i=0; i < todoItemsOrd.length; i++) {
     // Chiamo il template
@@ -41,6 +41,7 @@ $(document).ready(function(){
   $('.todo-list li i').click(function(){
     $(this).parent().remove();
   });
+
 
 
 
